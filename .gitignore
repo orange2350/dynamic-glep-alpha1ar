@@ -1,0 +1,51 @@
+# Compound-level and processed data
+data/*
+!data/README.md
+inputs/
+models/
+external51/
+
+# Molecular and simulation files
+*.sdf
+*.smi
+*.smiles
+*.mol
+*.mol2
+*.pdb
+*.cms
+*.xtc
+*.dcd
+*.mae
+*.maegz
+
+# Feature matrices and serialized models
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+
+# Compound-level tables and office files
+*oof_predictions*.csv
+*fold_assignments*.csv
+*external*predict*.csv
+*.xlsx
+*.xls
+*.docx
+*.pptx
+~$*
+
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.tmp
+*.log
+

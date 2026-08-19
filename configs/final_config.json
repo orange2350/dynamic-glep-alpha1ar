@@ -1,0 +1,32 @@
+{
+  "activity_definition": "pIC50 > 7.0",
+  "datasets": {
+    "alpha1A": {"total": 287, "active": 126, "inactive": 161},
+    "alpha1B": {"total": 134, "active": 21, "inactive": 113},
+    "alpha1D": {"total": 231, "active": 89, "inactive": 142}
+  },
+  "classifier": {
+    "name": "GradientBoostingClassifier",
+    "n_estimators": 150,
+    "learning_rate": 0.04,
+    "max_depth": 3,
+    "min_samples_leaf": 1,
+    "subsample": 1.0,
+    "class_weighting": "none"
+  },
+  "validation": {
+    "method": "repeated stratified shuffled random five-fold cross-validation",
+    "seeds": [4096, 4097, 4098],
+    "decision_threshold": 0.5
+  },
+  "representations": {
+    "docking_only": "Arithmetic mean of available best-pose Glide scores across RRCS-selected active- and inactive-state conformations (1D)",
+    "static_structure": "EquiScore embedding from active_000 (128D)",
+    "dynamic_glep": "Dimension-wise mean and population standard deviation of EquiScore embeddings across RRCS-selected conformations (256D)"
+  },
+  "external51": {
+    "role": "prospective exploratory candidate prioritization; not an independent labeled performance test set",
+    "similarity_informed_score": "0.9*prob_A + 0.1*ECFP4_similarity - max(prob_B, prob_D)",
+    "interpretation": "positive score indicates relative alpha1A tendency; no alpha1B-versus-alpha1D assignment"
+  }
+}
